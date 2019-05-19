@@ -41,7 +41,7 @@ $(function () {
 
     function loadContestants() {
         var contetstatHtmlString = "";
-        $.getJSON("http://localhost:3000/contestants/", function (contestants) {
+        $.getJSON("/contestants/", function (contestants) {
             let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
             contestants.forEach(element => {
                 contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
