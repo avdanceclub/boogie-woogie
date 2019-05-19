@@ -39,7 +39,12 @@ require('./app/routes/note.routes.js')(app);
 require('./app/routes/contestant.routes.js')(app);
 require('./app/routes/otp.routes.js')(app);
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
 // listen for requests
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Server is listening on port 3000");
 });
