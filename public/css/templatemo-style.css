@@ -629,6 +629,7 @@ header .social-icon li a {
 
 .profile h1 {
 	color: #28A7E9;
+	font-size: 25px;
 }
 
 .profile p {
@@ -660,6 +661,10 @@ header .social-icon li a {
 	font-weight: bold;
 	-webkit-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
+}
+
+.profile button.close {
+	background-color: white!important;
 }
 
 .profile input[type="submit"]:hover,

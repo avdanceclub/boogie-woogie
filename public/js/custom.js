@@ -46,7 +46,7 @@ $(function () {
             contestants.forEach(element => {
                 contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
             <div class="team-wrapper">
-                <img id="${element.ID}" src="images/${element.imageName || 'team-img1.jpg'}" class="img-responsive" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}" data-target=".profile-modal-lg">
+                <img id="${element._id}" src="images/${element.imageName || 'team-img1.jpg'}" class="img-responsive" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}" data-target=".profile-modal-lg">
                     <div class="team-des">
                         <h4>${element.Name.toLowerCase()}</h4>
                     </div>
@@ -54,14 +54,16 @@ $(function () {
         </div>`
             });
             $("#participans-container").append(contetstatHtmlString);
+
+            
+            var contestantId = location.search.replace("?contestantId=", "");
+            $("#" + contestantId).trigger('click');
         });
         // console.log($("#participans-container"));
     }
 
     loadContestants();
 
-    var contestantId = location.search.replace("?contestantId=", "");
-    $("#" + contestantId).trigger('click');
 });
 
 /* start preloader */

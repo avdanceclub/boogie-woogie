@@ -197,7 +197,7 @@ exports.load = (req, res) => {
         uri: `https://www.townscript.com/api/registration/getRegisteredUsers?eventCode=av-boogie-woogie-222112`,
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            'Authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJST0xFIjoiUk9MRV9VU0VSIiwic3ViIjoiYXYuZGFuY2VjbHViQGdtYWlsLmNvbSIsImF1ZGllbmNlIjoid2ViIiwiY3JlYXRlZCI6MTU1ODIwNzcwNjk5MiwiVVNFUl9JRCI6MTIyNzUzMywiZXhwIjoxNTY1OTgzNzA2fQ.8nzCH5vcZ1B0sTkFFe-FTLAml7DUrYy00iN1MMQqv8S3zlDtl7KZqLlf8-NcZefz7QaNpgO-a9WkHitupfRDrg'
+            'Authorization': process.env.TOWNSCRIPT_API_KEY
         },
         json: true
     };

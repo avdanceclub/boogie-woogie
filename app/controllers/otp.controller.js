@@ -1,5 +1,4 @@
 var requestPromise = require('request-promise');
-const config = require('../../config/config.js');
 const Contestant = require('../models/contestant.model.js');
 const Vote = require('../models/vote.model.js');
 const dataprotect = require('../utils/dataprotect');
@@ -17,7 +16,7 @@ exports.send = (req, res) => {
 
     return checkDuplicateVoter(dataprotect.encrypt(req.body.phoneNumber)).then(data => {
         //During developement just asume there are no duplicates and stub the response
-        if(config.env=='development'){
+        if(process.env.NODE_ENV=='development'){
             return res.send({
                 "Status": "Success",
                 "Details": "6ec30d77-3f1e-4789-b855-9a3872563969"
@@ -47,7 +46,7 @@ exports.verify = (req, res) => {
     }
 
     return checkDuplicateVoter(dataprotect.encrypt(req.body.phoneNumber)).then(data => {
-        if (data && config.env !='development') {
+        if (data && process.env.NODE_ENV !='development') {
            return res.status(200).send({
                 Status: "Your vote is already registered!"
             })
@@ -86,7 +85,7 @@ exports.verify = (req, res) => {
 const sendOTPRequestToProvider = (phoneNumber) => {
     var options = {
         method: 'GET',
-        uri: `http://2factor.in/API/V1/${config.twofactorapikey}/SMS/${phoneNumber}/AUTOGEN/AVDANC`,
+        uri: `http://2factor.in/API/V1/${process.env.TWO_FACTOR_API_KEY}/SMS/${phoneNumber}/AUTOGEN/AVDANC`,
         headers: {
             'content-type': 'application/x-www-form-urlencoded'
         },
@@ -106,7 +105,7 @@ const sendOTPRequestToProvider = (phoneNumber) => {
 const verifyOTPFromProvider = (verifyBody) => {
     var options = {
         method: 'GET',
-        uri: `http://2factor.in/API/V1/${config.twofactorapikey}/SMS/VERIFY/${verifyBody.sessionId}/${verifyBody.otp}`,
+        uri: `http://2factor.in/API/V1/${process.env.TWO_FACTOR_API_KEY}/SMS/VERIFY/${verifyBody.sessionId}/${verifyBody.otp}`,
         headers: {
             'content-type': 'application/x-www-form-urlencoded'
         },
