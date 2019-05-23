@@ -44,7 +44,7 @@ $(function () {
         $.getJSON("/contestants/", function (contestants) {
             let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
             contestants.forEach(element => {
-                contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
+                contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-12 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
             <div class="team-wrapper">
                 <img id="${element._id}" src="images/${element.imageName || 'team-img1.jpg'}" class="img-responsive" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}" data-target=".profile-modal-lg">
                     <div class="team-des">
@@ -84,15 +84,25 @@ $(document).on('show.bs.modal', '#myModal', function (e) {
     modal.find('.title,.contestantName').text(button.data('name'))
     modal.find('#contestantId').val(button.data('contestant-id'))
     modal.find('.iframe').attr('src', button.data('video'))
-
+    resetForm(modal);
 });
+
+function resetForm(popup){
+    popup.find(":submit").prop("disabled", false);
+    $("#form-alert").addClass('hide');
+    popup.find('form')[0].reset();
+    popup.find('form')[1].reset();
+    $("#submitOtp").hide();
+}
 
 
 // Attach a submit handler to the form
 $("#submitPhone").submit(function (event) {
     // Stop form from submitting normally
     event.preventDefault();
-
+    // prevent duplicate form submission
+    $(this).find(":submit").attr('disabled', 'disabled');
+    
     // Get some values from elements on the page:
     var $form = $(this),
         contId = $form.find("#contestantId").val(),
@@ -113,6 +123,8 @@ $("#submitPhone").submit(function (event) {
             Object.assign(formData, {
                 sessionId: data.Details
             })
+            //show the OTP form
+            $("#submitOtp").show();
             $("#form-alert").toggleClass('hide').removeClass('alert-danger').addClass('alert-success').text("You should receive OTP soon!");
         } else {
             $("#form-alert").toggleClass('hide').text(data.Status);
@@ -124,6 +136,8 @@ $("#submitPhone").submit(function (event) {
 $("#submitOtp").submit(function (event) {
     // Stop form from submitting normally
     event.preventDefault();
+    // prevent duplicate form submission
+    $(this).find(":submit").attr('disabled', 'disabled');
 
     // Get some values from elements on the page:
     var $form = $(this),

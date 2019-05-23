@@ -46,7 +46,9 @@ h2 span {
 #contact,
 #organizers,
 #participants,
-#event {
+#event,
+#livestream
+ {
 	padding-top: 60px;
 	padding-bottom: 40px;
 }
@@ -57,7 +59,7 @@ h2 span {
 }
 
 #organizers {
-	background: #db7093;
+	background: #ff5776;
 	padding: 130px 0;
 }
 
@@ -85,6 +87,11 @@ h2 span {
 
 #event .date-venue .thumbnail {
 	background: aqua;
+	min-height: 200px;
+}
+
+#event .register-btn {
+	margin-top: 15px;
 }
 
 /* start preloader */
@@ -254,6 +261,10 @@ header .social-icon li a {
 	color: #28A7E9;
 }
 
+.nav {
+	margin-top: 5px;
+}
+
 .templatemo-nav {
 	border-radius: 0;
 	width: 100%;
@@ -359,7 +370,7 @@ header .social-icon li a {
 
 /* start sponsors */
 #sponsors {
-	background: darkslateblue;
+	background : #1c01c3;
 	padding: 130px 0;
 }
 
@@ -391,18 +402,18 @@ header .social-icon li a {
 	padding: 20px;
 }
 
-.team-wrapper{
+.team-wrapper {
 	border: 2px solid gray;
-    padding: 5px;
-    margin-bottom: 5px;
-    text-align: center;
+	padding: 5px;
+	margin-bottom: 5px;
+	text-align: center;
 }
 
-.team-des h4{
+.team-des h4 {
 	font-size: 15px;
 	margin-bottom: 0;
-	color : #000000;
-	text-transform : capitalize;
+	color: #000000;
+	text-transform: capitalize;
 }
 
 #team .team-wrapper .team-des span {
@@ -417,7 +428,7 @@ header .social-icon li a {
 /* start rules */
 
 #rules {
-	background: #ff7feb99
+	background: #ff01d7c4;
 }
 
 #rules .col-md-4 {
@@ -574,6 +585,12 @@ header .social-icon li a {
 
 /* end contact */
 
+#livestream {
+ background: lightgray;
+}
+
+
+
 /* start copyright */
 #copyright {
 	padding: 20px;
@@ -663,8 +680,12 @@ header .social-icon li a {
 	transition: all 0.4s ease-in-out;
 }
 
+.profile input[type="submit"]:disabled {
+    background: #eee !important;
+}
+
 .profile button.close {
-	background-color: white!important;
+	background-color: white !important;
 }
 
 .profile input[type="submit"]:hover,
@@ -693,6 +714,27 @@ header .social-icon li a {
 
 .image-container {
 	text-align: center;
+}
+
+#profile_page .profile_image {
+	border-radius: 50%;
+	margin: 0 auto;
+}
+
+#profile_page .title {
+	margin-top: 100px;
+	text-align: left;
+}
+
+.advertise {
+	margin-top: 60px;
+}
+
+.advertise a {
+	min-height: 400px;
+	text-align: center;
+	padding-top: 180px;
+	font-size: 30px;
 }
 
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
