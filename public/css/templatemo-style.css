@@ -777,7 +777,7 @@ header .social-icon li a {
 }
 
 #contestant .avatar {
-	text-align: left;
+	text-align: center;
 	position: relative;
 	top: 50%;
 	margin: 0 auto;
@@ -957,7 +957,7 @@ header .social-icon li a {
 	#contestant .contestant-name {
 		margin-top : 10px;
 		color : white;
-		text-;
+		text-align: center
 	}
 }
 
