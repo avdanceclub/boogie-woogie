@@ -38,7 +38,7 @@ $(function () {
     -----------------*/
     new WOW().init();
 
-
+    // loads the contestants with modal popup
     function loadContestants() {
         var contetstatHtmlString = "";
         $.getJSON("/contestants/", function (contestants) {
@@ -55,16 +55,39 @@ $(function () {
             });
             $("#participans-container").append(contetstatHtmlString);
 
-            
+
             var contestantId = location.search.replace("?contestantId=", "");
             $("#" + contestantId).trigger('click');
         });
         // console.log($("#participans-container"));
     }
 
-    loadContestants();
+    // loadContestants();
+
+    fetchContestants();
 
 });
+//Call this funtion to fetch and store in sesssion storage
+function fetchContestants() {
+    var contetstatHtmlString = "";
+    $.getJSON("/contestants/", function (contestants) {
+        // sessionStorage.setItem('contestants', JSON.stringify({"data":contestants}));
+        let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
+        contestants.forEach(element => {
+            contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-12 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
+            <div class="team-wrapper">
+                <a href="contestant.html?contestantid=${element._id}">
+                <img id="${element._id}" src="images/${element.imageName || 'team-img1.jpg'}" class="img-responsive" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}">
+                </a>
+                    <div class="team-des">
+                        <h4>${element.Name.toLowerCase()}</h4>
+                    </div>
+            </div>
+        </div>`
+        });
+        $("#participans-container").append(contetstatHtmlString);
+    })
+}
 
 /* start preloader */
 // $(window).load(function(){
@@ -87,7 +110,7 @@ $(document).on('show.bs.modal', '#myModal', function (e) {
     resetForm(modal);
 });
 
-function resetForm(popup){
+function resetForm(popup) {
     popup.find(":submit").prop("disabled", false);
     $("#form-alert").addClass('hide');
     popup.find('form')[0].reset();
@@ -102,7 +125,7 @@ $("#submitPhone").submit(function (event) {
     event.preventDefault();
     // prevent duplicate form submission
     $(this).find(":submit").attr('disabled', 'disabled');
-    
+
     // Get some values from elements on the page:
     var $form = $(this),
         contId = $form.find("#contestantId").val(),
@@ -142,7 +165,7 @@ $("#submitOtp").submit(function (event) {
     // Get some values from elements on the page:
     var $form = $(this),
         url = $form.attr("action");
-        formData['otp'] = $form.find("#otp").val();
+    formData['otp'] = $form.find("#otp").val();
     // Send the data using post
     var posting = $.post(url, formData);
 
@@ -151,11 +174,11 @@ $("#submitOtp").submit(function (event) {
         console.log(data);
         if (data.Status === 'Success') {
             $("#form-alert").toggleClass('show').removeClass('alert-danger').addClass('alert-success').text("Your vote is registered. Thank you!");
-           setTimeout(function(){
-               $('#myModal').modal('hide')
-           },3000)
+            setTimeout(function () {
+                $('#myModal').modal('hide')
+            }, 3000)
 
-        } else if (data.Status === 'Error'&& data.Details == 'OTP Mismatch') {
+        } else if (data.Status === 'Error' && data.Details == 'OTP Mismatch') {
             $("#form-alert").toggleClass('show').addClass('alert-danger').text('Please enter the correct OTP.');
         }
     });

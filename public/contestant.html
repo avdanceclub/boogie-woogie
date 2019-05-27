@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>AV Boogie Woogie</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'> -->
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Montserrat+Alternates|Ultra|Open+Sans:400,300,600,700"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+</head>
+
+<body id="top">
+    <!-- start navigation -->
+    <!-- <nav class="navbar navbar-default templatemo-nav sticky" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="/index.html" class="navbar-brand">
+                    <img src="images/bg-logo.png" class="img-responsive" alt="Av boogie woogie logo">
+                </a>
+            </div>
+        </div>
+    </nav> -->
+    <!-- end navigation -->
+
+    <section id="contestant">
+        <div class="contestant-header">
+
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="avatar">
+                        <img src="images/team-img1.jpg" alt="" class="avatar">
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <h3 class="contestant-name" id="contestantName"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div class="info">
+                        <h4>Info</h4>
+                        <p>Contestant Id: <span id="contestantRegId"></span></p>
+                        <p>Group: <span id="contestantGrp"></span</p>
+                        <p>Group: <span id="contestantDanceType"></span</p> 
+                    </div>
+
+                    <div class="info profile">
+                        <h4>Vote for Me!</h4>
+                        <div id="form-alert" class="alert alert-danger hide" role="alert"></div>
+                        <label>Mobile Number</label>
+                        <form id="submitPhone" action="/otp/send">
+                            <input name="mobilenumber" type="tel" class="form-control" id="mobilenumber"
+                                pattern="^\d{10}$" required="">
+                            <input name="contestantid" type="hidden" id="contestantId" value="5ce19aac471c9f54f84f49ae">
+                            <input type="submit" class="form-control" value="Get Otp">
+                        </form>
+                        <form id="submitOtp" action="/otp/verify" style="display: none;">
+                            <label>OTP</label>
+                            <input name="number" type="number" class="form-control" id="otp">
+                            <input type="submit" class="form-control" value="Confirm Vote">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="profile col-md-8 col-sm-12 col-xs-12">
+                    <div class="post">
+                        <h4>Semifinal Performence</h4>
+                        <div class="video-container">
+                            <iframe id="contestantVideo" width="560" height="315"
+                                src="https://www.youtube.com/embed/I_AjXGBOdO0" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                    <!-- <div class="post">
+                        <h4>Vote for Me</h4>
+                        <div id="form-alert" class="alert alert-danger hide" role="alert"></div>
+                        <label>Mobile Number</label>
+                        <form id="submitPhone" action="/otp/send">
+                            <input name="mobilenumber" type="tel" class="form-control" id="mobilenumber"
+                                pattern="^\d{10}$" required="">
+                            <input name="contestantid" type="hidden" id="contestantId" value="5ce19aac471c9f54f84f49ae">
+                            <input type="submit" class="form-control" value="Get Otp">
+                        </form>
+                        <form id="submitOtp" action="/otp/verify" style="display: none;">
+                            <label>OTP</label>
+                            <input name="number" type="number" class="form-control" id="otp">
+                            <input type="submit" class="form-control" value="Confirm Vote">
+                        </form>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/contestant.js"></script>
+</body>
+
+</html>
