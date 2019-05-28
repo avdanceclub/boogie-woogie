@@ -65,9 +65,10 @@ $("#submitPhone").submit(function (event) {
             })
             //show the OTP form
             $("#submitOtp").show();
-            $("#form-alert").toggleClass('hide').removeClass('alert-danger').addClass('alert-success').text("You should receive OTP soon!");
+            $("#form-alert").removeClass('alert-danger hide').addClass('alert-success show').text("You should receive OTP soon!");
+            // $("#form-alert").toggleClass('hide').removeClass('alert-danger').addClass('alert-success').text("You should receive OTP soon!");
         } else {
-            $("#form-alert").toggleClass('hide').text(data.Status);
+            $("#form-alert").removeClass('hide').addClass('alert-danger show').text(data.Status);
         }
     });
 });
@@ -91,9 +92,9 @@ $("#submitOtp").submit(function (event) {
     posting.done(function (data) {
         console.log(data);
         if (data.Status === 'Success') {
-            $("#form-alert").toggleClass('show').removeClass('alert-danger').addClass('alert-success').text("Your vote is registered. Thank you!");
+            $("#form-alert").removeClass('hide alert-danger').addClass('alert-success show').text("Your vote is registered. Thank you!");
         } else if (data.Status === 'Error' && data.Details == 'OTP Mismatch') {
-            $("#form-alert").toggleClass('show').addClass('alert-danger').text('Please enter the correct OTP.');
+            $("#form-alert").removeClass('alert-success show').addClass('alert-danger show').text('Please enter the correct OTP.');
             $(this).find(":submit").prop("disabled", false);
         }
     });

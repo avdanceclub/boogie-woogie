@@ -38,7 +38,11 @@
 
     <section id="contestant">
         <div class="contestant-header">
-
+            <!-- <div class="event-name">
+                <h1><span>AV</span>Boogie Woogie</h1>
+                <h5>Bigest Dance Competition for Arya Vaishyas in Maharashtra</h5>
+                <h2>Title Sponsors Mr. Laxmikant & Mrs. Madhuri Kole</h2>
+            </div> -->
         </div>
         <div class="container">
             <div class="row">
@@ -59,25 +63,23 @@
                     <div class="info">
                         <h4>Info</h4>
                         <p>Contestant Id: <span id="contestantRegId"></span></p>
-                        <p>Group: <span id="contestantGrp"></span</p>
-                        <p>Group: <span id="contestantDanceType"></span</p> 
-                    </div>
-
-                    <div class="info profile">
-                        <h4>Vote for Me!</h4>
-                        <div id="form-alert" class="alert alert-danger hide" role="alert"></div>
-                        <label>Mobile Number</label>
-                        <form id="submitPhone" action="/otp/send">
-                            <input name="mobilenumber" type="tel" class="form-control" id="mobilenumber"
-                                pattern="^\d{10}$" required="">
-                            <input name="contestantid" type="hidden" id="contestantId" value="5ce19aac471c9f54f84f49ae">
-                            <input type="submit" class="form-control" value="Get Otp">
-                        </form>
-                        <form id="submitOtp" action="/otp/verify" style="display: none;">
-                            <label>OTP</label>
-                            <input name="number" type="number" class="form-control" id="otp">
-                            <input type="submit" class="form-control" value="Confirm Vote">
-                        </form>
+                        <p>Group: <span id="contestantGrp"></span</p> <p>Group: <span id="contestantDanceType">
+                                    </span</p> </div> <div class="info profile">
+                                    <h4>Vote for Me!</h4>
+                                    <div id="form-alert" class="alert alert-danger hide" role="alert"></div>
+                                    <label>Mobile Number</label>
+                                    <form id="submitPhone" action="/otp/send">
+                                        <input name="mobilenumber" type="tel" class="form-control" id="mobilenumber"
+                                            pattern="^\d{10}$" required="">
+                                        <input name="contestantid" type="hidden" id="contestantId"
+                                            value="5ce19aac471c9f54f84f49ae">
+                                        <input type="submit" class="form-control" value="Get Otp">
+                                    </form>
+                                    <form id="submitOtp" action="/otp/verify" style="display: none;">
+                                        <label>OTP</label>
+                                        <input name="number" type="number" class="form-control" id="otp">
+                                        <input type="submit" class="form-control" value="Confirm Vote">
+                                    </form>
                     </div>
                 </div>
 

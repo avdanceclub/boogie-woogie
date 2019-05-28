@@ -55,7 +55,7 @@ h2 span {
 
 /* end sponsors team rules portfolio contact */
 #participants {
-	background: #7fffd4;
+	background: #d8c6ff;
 }
 
 #organizers {
@@ -403,10 +403,10 @@ header .social-icon li a {
 }
 
 .team-wrapper {
-	border: 2px solid gray;
-	padding: 5px;
-	margin-bottom: 5px;
-	text-align: center;
+	padding: 11px 11px 0px 11px;
+    margin-bottom: 30px;
+    text-align: center;
+    background: white;
 }
 
 .team-des h4 {
@@ -835,6 +835,23 @@ header .social-icon li a {
 #contestant .profile input,
 .profile button {
 	height: 30px;
+}
+
+.vote-btn {
+	height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: royalblue;
+    display: inline-block;
+    position: relative;
+    top: 17px;
+    padding-top: 7px;
+    border: 2px solid white;
+}
+
+.vote-btn .fa-thumbs-up {
+	font-size: 20px;
+	color: white;
 }
 
 @media only screen and (max-width: 1199px) and (min-width: 992px) {

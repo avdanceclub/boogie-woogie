@@ -75,13 +75,16 @@ function fetchContestants() {
         let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
         contestants.forEach(element => {
             contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-12 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
-            <div class="team-wrapper">
+            <div class="team-wrapper ">
                 <a href="contestant.html?contestantid=${element._id}">
                 <img id="${element._id}" src="images/${element.imageName || 'team-img1.jpg'}" class="img-responsive" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}">
                 </a>
                     <div class="team-des">
                         <h4>${element.Name.toLowerCase()}</h4>
                     </div>
+                    <a class='vote-btn' href="contestant.html?contestantid=${element._id}">
+                    <i class='fa fa-thumbs-up' title='Vote for this contestant'></i>
+                    </a>
             </div>
         </div>`
         });
