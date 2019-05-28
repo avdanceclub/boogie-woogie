@@ -119,67 +119,67 @@ function resetForm(popup) {
 }
 
 
-// Attach a submit handler to the form
-$("#submitPhone").submit(function (event) {
-    // Stop form from submitting normally
-    event.preventDefault();
-    // prevent duplicate form submission
-    $(this).find(":submit").attr('disabled', 'disabled');
+// // Attach a submit handler to the form
+// $("#submitPhone").submit(function (event) {
+//     // Stop form from submitting normally
+//     event.preventDefault();
+//     // prevent duplicate form submission
+//     $(this).find(":submit").attr('disabled', 'disabled');
 
-    // Get some values from elements on the page:
-    var $form = $(this),
-        contId = $form.find("#contestantId").val(),
-        phone = $form.find("#mobilenumber").val(),
-        url = $form.attr("action");
+//     // Get some values from elements on the page:
+//     var $form = $(this),
+//         contId = $form.find("#contestantId").val(),
+//         phone = $form.find("#mobilenumber").val(),
+//         url = $form.attr("action");
 
-    formData = {
-        phoneNumber: phone,
-        contestantId: contId
-    }
-    // Send the data using post
-    var posting = $.post(url, formData);
+//     formData = {
+//         phoneNumber: phone,
+//         contestantId: contId
+//     }
+//     // Send the data using post
+//     var posting = $.post(url, formData);
 
-    // Put the results in a div
-    posting.done(function (data) {
-        console.log(data);
-        if (data.Status === 'Success') {
-            Object.assign(formData, {
-                sessionId: data.Details
-            })
-            //show the OTP form
-            $("#submitOtp").show();
-            $("#form-alert").toggleClass('hide').removeClass('alert-danger').addClass('alert-success').text("You should receive OTP soon!");
-        } else {
-            $("#form-alert").toggleClass('hide').text(data.Status);
-        }
-    });
-});
+//     // Put the results in a div
+//     posting.done(function (data) {
+//         console.log(data);
+//         if (data.Status === 'Success') {
+//             Object.assign(formData, {
+//                 sessionId: data.Details
+//             })
+//             //show the OTP form
+//             $("#submitOtp").show();
+//             $("#form-alert").toggleClass('hide').removeClass('alert-danger').addClass('alert-success').text("You should receive OTP soon!");
+//         } else {
+//             $("#form-alert").toggleClass('hide').text(data.Status);
+//         }
+//     });
+// });
 
-// Attach a submit handler to the form
-$("#submitOtp").submit(function (event) {
-    // Stop form from submitting normally
-    event.preventDefault();
-    // prevent duplicate form submission
-    $(this).find(":submit").attr('disabled', 'disabled');
+// // Attach a submit handler to the form
+// $("#submitOtp").submit(function (event) {
+//     // Stop form from submitting normally
+//     event.preventDefault();
+//     // prevent duplicate form submission
+//     $(this).find(":submit").attr('disabled', 'disabled');
 
-    // Get some values from elements on the page:
-    var $form = $(this),
-        url = $form.attr("action");
-    formData['otp'] = $form.find("#otp").val();
-    // Send the data using post
-    var posting = $.post(url, formData);
+//     // Get some values from elements on the page:
+//     var $form = $(this),
+//         url = $form.attr("action");
+//     formData['otp'] = $form.find("#otp").val();
+//     // Send the data using post
+//     var posting = $.post(url, formData);
 
-    // Put the results in a div
-    posting.done(function (data) {
-        console.log(data);
-        if (data.Status === 'Success') {
-            $("#form-alert").toggleClass('show').removeClass('alert-danger').addClass('alert-success').text("Your vote is registered. Thank you!");
-            setTimeout(function () {
-                $('#myModal').modal('hide')
-            }, 3000)
+//     // Put the results in a div
+//     posting.done(function (data) {
+//         console.log(data);
+//         if (data.Status === 'Success') {
+//             $("#form-alert").toggleClass('show').removeClass('alert-danger').addClass('alert-success').text("Your vote is registered. Thank you!");
+//             setTimeout(function () {
+//                 $('#myModal').modal('hide')
+//             }, 3000)
 
-        } else if (data.Status === 'Error' && data.Details == 'OTP Mismatch') {
-            $("#form-alert").toggleClass('show').addClass('alert-danger').text('Please enter the correct OTP.');
-        }
-    });
-});
+//         } else if (data.Status === 'Error' && data.Details == 'OTP Mismatch') {
+//             $("#form-alert").toggleClass('show').addClass('alert-danger').text('Please enter the correct OTP.');
+//         }
+//     });
+// });
