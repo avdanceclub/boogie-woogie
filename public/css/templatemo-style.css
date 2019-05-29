@@ -59,12 +59,12 @@ h2 span {
 }
 
 #organizers {
-	background: #ff5776;
+	background: #f391a3;
 	padding: 130px 0;
 }
 
 #event {
-	background: #ffed34;
+	background: #fff7a0;
 
 }
 
@@ -86,8 +86,12 @@ h2 span {
 }
 
 #event .date-venue .thumbnail {
-	background: aqua;
+	background: white;
 	min-height: 200px;
+}
+
+#event .event-note{
+	min-height: 150px!important;
 }
 
 #event .register-btn {
@@ -359,6 +363,8 @@ header .social-icon li a {
 
 #home .event-name h2 {
 	font-size: 25px;
+	color: #f90000;
+	text-shadow: 1px 1px white;
 }
 
 #home .quote {
@@ -379,6 +385,14 @@ header .social-icon li a {
 	font-weight: bold;
 	padding-top: 20px;
 	padding-left: 52px;
+}
+
+.title-sponsor-img {}
+
+#participants .note{
+	color: black;
+    margin-top: -20px;
+    margin-bottom: 25px;
 }
 
 /* end sponsors */
@@ -457,7 +471,7 @@ header .social-icon li a {
 	text-align: center;
 }
 
-#rules ul>li {
+#rules ol>li {
 	color: rgb(250, 252, 254);
 	padding: 3px;
 	font-size: 16px;
@@ -733,7 +747,7 @@ header .social-icon li a {
 .advertise a {
 	min-height: 400px;
 	text-align: center;
-	padding-top: 180px;
+	/* padding-top: 180px; */
 	font-size: 30px;
 }
 
