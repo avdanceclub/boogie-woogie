@@ -387,7 +387,7 @@ header .social-icon li a {
 	padding-left: 52px;
 }
 
-.title-sponsor-img {}
+@
 
 #participants .note{
 	color: black;
@@ -989,6 +989,10 @@ header .social-icon li a {
 		margin-top : 10px;
 		color : white;
 		text-align: center
+	}
+
+	.title-sponsor-img img{
+		height: 200px
 	}
 }
 
