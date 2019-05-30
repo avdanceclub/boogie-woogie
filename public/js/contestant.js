@@ -30,7 +30,7 @@ $(function () {
 function displayContestantsDetails(contDetails) {
     var contestantName = contDetails.Name.toLowerCase();
     if (contDetails.PartnerName){
-        contestantName = contestantName+" <br>&<br> "+contDetails.PartnerName.toLowerCase();
+        contestantName = contestantName+" & "+contDetails.PartnerName.toLowerCase();
     }
     $("#contestantName").html(contestantName)
     $("#contestantRegId").text(contDetails.ID)
