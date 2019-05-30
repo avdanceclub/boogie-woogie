@@ -47,8 +47,7 @@ h2 span {
 #organizers,
 #participants,
 #event,
-#livestream
- {
+#livestream {
 	padding-top: 60px;
 	padding-bottom: 40px;
 }
@@ -90,8 +89,8 @@ h2 span {
 	min-height: 200px;
 }
 
-#event .event-note{
-	min-height: 150px!important;
+#event .event-note {
+	min-height: 150px !important;
 }
 
 #event .register-btn {
@@ -376,7 +375,7 @@ header .social-icon li a {
 
 /* start sponsors */
 #sponsors {
-	background : #1c01c3;
+	background: #1c01c3;
 	padding: 130px 0;
 }
 
@@ -387,12 +386,10 @@ header .social-icon li a {
 	padding-left: 52px;
 }
 
-@
-
-#participants .note{
+@ #participants .note {
 	color: black;
-    margin-top: -20px;
-    margin-bottom: 25px;
+	margin-top: -20px;
+	margin-bottom: 25px;
 }
 
 /* end sponsors */
@@ -418,9 +415,11 @@ header .social-icon li a {
 
 .team-wrapper {
 	padding: 11px 11px 0px 11px;
-    margin-bottom: 30px;
-    text-align: center;
-    background: white;
+	margin-bottom: 30px;
+	text-align: center;
+	background: white;
+	min-height: 334px;
+	position: relative
 }
 
 .team-des h4 {
@@ -600,7 +599,7 @@ header .social-icon li a {
 /* end contact */
 
 #livestream {
- background: lightgray;
+	background: lightgray;
 }
 
 
@@ -695,7 +694,7 @@ header .social-icon li a {
 }
 
 .profile input[type="submit"]:disabled {
-    background: #eee !important;
+	background: #eee !important;
 }
 
 .profile button.close {
@@ -752,36 +751,36 @@ header .social-icon li a {
 }
 
 #profile-page {
- margin-top: 50px;
- position: relative;
+	margin-top: 50px;
+	position: relative;
 }
 
-#profile-page  .profile-header {
+#profile-page .profile-header {
 	height: 200px;
 	background: linear-gradient(0deg, #f9f295, #ff7f9f)
 }
 
 #profile-page .avatar {
 	text-align: center;
-    position: relative;
-    top: 50%;
-    margin: 0 auto;
+	position: relative;
+	top: 50%;
+	margin: 0 auto;
 }
 
-#profile-page .avatar img{
+#profile-page .avatar img {
 	width: 200px;
-    height: 200px;
-    max-width: 200px;
-    max-height: 200px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    border: 5px solid rgba(255,255,255,0.5);
+	height: 200px;
+	max-width: 200px;
+	max-height: 200px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border: 5px solid rgba(255, 255, 255, 0.5);
 }
 
 #profile-page .bio {
 	text-align: left;
-	margin-top : 100px;
+	margin-top: 100px;
 }
 
 
@@ -817,6 +816,7 @@ header .social-icon li a {
 	font-size: 30px;
 	color: darkslategrey;
 	margin-left: 15px;
+	text-transform: capitalize;
 }
 
 #contestant .info {
@@ -851,21 +851,39 @@ header .social-icon li a {
 	height: 30px;
 }
 
+h4.text-center.note {
+	margin-bottom: 30px;
+	font-size: 25px;
+	color: royalblue;
+}
+
 .vote-btn {
 	height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    background-color: royalblue;
-    display: inline-block;
-    position: relative;
-    top: 17px;
-    padding-top: 7px;
-    border: 2px solid white;
+	width: 40px;
+	border-radius: 50%;
+	background-color: royalblue;
+	display: inline-block;
+	padding-top: 7px;
+	border: 2px solid white;
 }
 
 .vote-btn .fa-thumbs-up {
 	font-size: 20px;
 	color: white;
+}
+
+.vote-btn-cont {
+    position: absolute;
+    width: 100%;
+	bottom: -20px;
+	margin-left: -10px;
+}
+
+.title-sponsor-img img {
+	background: white;
+	height: 300px;
+	margin-top: 20px;
+	border: 5px solid darkblue;
 }
 
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
@@ -981,18 +999,26 @@ header .social-icon li a {
 		margin-top: 10px;
 	}
 
-	#contestant .avatar  {
+	#contestant .avatar {
 		text-align: center
 	}
 
 	#contestant .contestant-name {
-		margin-top : 10px;
-		color : white;
+		margin-top: 10px;
+		color: white;
 		text-align: center
 	}
 
-	.title-sponsor-img img{
+	.title-sponsor-img img {
 		height: 200px
+	}
+
+	.vote-btn {
+		top:18px;
+	}
+
+	.team-wrapper{
+		min-height: 300px
 	}
 }
 

@@ -28,7 +28,11 @@ $(function () {
 })
 
 function displayContestantsDetails(contDetails) {
-    $("#contestantName").text(contDetails.Name)
+    var contestantName = contDetails.Name.toLowerCase();
+    if (contDetails.PartnerName){
+        contestantName = contestantName+" <br>&<br> "+contDetails.PartnerName.toLowerCase();
+    }
+    $("#contestantName").html(contestantName)
     $("#contestantRegId").text(contDetails.ID)
     $("#contestantDanceType").text(contDetails.DanceType)
     $("#contestantGrp").text(contDetails.Group === "A" ? "A - Age 9-18 Years" : "B - Age 18+ Years")
