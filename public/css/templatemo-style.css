@@ -743,6 +743,10 @@ header .social-icon li a {
 	margin-top: 60px;
 }
 
+.advertise img {
+	margin:0 auto;
+}
+
 .advertise a {
 	min-height: 400px;
 	text-align: center;
@@ -884,6 +888,10 @@ h4.text-center.note {
 	height: 300px;
 	margin-top: 20px;
 	border: 5px solid darkblue;
+}
+
+.title-sponsor-img.supporting img {
+height: 200px;
 }
 
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
