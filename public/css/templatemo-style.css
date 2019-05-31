@@ -744,7 +744,7 @@ header .social-icon li a {
 }
 
 .advertise img {
-	margin:0 auto;
+	margin: 0 auto;
 }
 
 .advertise a {
@@ -787,9 +787,16 @@ header .social-icon li a {
 	margin-top: 100px;
 }
 
+.contestant-navbar {
+	height: 40px;
+}
 
-.contestant-header {
-	height: 170px;
+.contestant-navbar.navbar-default .navbar-brand {
+	padding :3px 0px 0px 12px;
+}
+
+#contestant .contestant-header {
+	height: 230px;
 	background: linear-gradient(0deg, #f9f295, #ff7f9f);
 }
 
@@ -877,8 +884,8 @@ h4.text-center.note {
 }
 
 .vote-btn-cont {
-    position: absolute;
-    width: 100%;
+	position: absolute;
+	width: 100%;
 	bottom: -20px;
 	margin-left: -10px;
 }
@@ -891,7 +898,12 @@ h4.text-center.note {
 }
 
 .title-sponsor-img.supporting img {
-height: 200px;
+	height: 200px;
+}
+
+.cont-image {
+	background-color: black;
+	opacity: 0.8;
 }
 
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
@@ -927,6 +939,9 @@ height: 200px;
 
 /* start 768 media quires */
 @media only screen and (max-width: 767px) {
+	body {
+        overflow-x: hidden !important;
+    }
 	.navbar-brand {
 		font-size: 25px;
 	}
@@ -1018,14 +1033,14 @@ height: 200px;
 	}
 
 	.title-sponsor-img img {
-		height: 200px
+		height: 250px
 	}
 
 	.vote-btn {
-		top:18px;
+		top: 18px;
 	}
 
-	.team-wrapper{
+	.team-wrapper {
 		min-height: 250px
 	}
 }

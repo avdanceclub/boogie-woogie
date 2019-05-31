@@ -39,29 +39,29 @@ $(function () {
     new WOW().init();
 
     // loads the contestants with modal popup
-    function loadContestants() {
-        var contetstatHtmlString = "";
-        $.getJSON("/contestants/", function (contestants) {
-            // console.log(contestants)
-            let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
-            contestants.forEach(element => {
-                contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-12 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
-            <div class="team-wrapper">
-                <img id="${element._id}" src="images/${element.imageName || 'team-img1.jpg'}" class="img-responsive" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}" data-target=".profile-modal-lg">
-                    <div class="team-des">
-                        <h4>${element.Name.toLowerCase()}</h4>
-                    </div>
-            </div>
-        </div>`
-            });
-            $("#participans-container").append(contetstatHtmlString);
+    // function loadContestants() {
+    //     var contetstatHtmlString = "";
+    //     $.getJSON("/contestants/", function (contestants) {
+    //         // console.log(contestants)
+    //         let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
+    //         contestants.forEach(element => {
+    //             contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-12 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
+    //         <div class="team-wrapper">
+    //             <img id="${element._id}" src="images/${element.imageName || 'team-img1.png'}" class="img-responsive" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}" data-target=".profile-modal-lg">
+    //                 <div class="team-des">
+    //                     <h4>${element.Name.toLowerCase()}</h4>
+    //                 </div>
+    //         </div>
+    //     </div>`
+    //         });
+    //         $("#participans-container").append(contetstatHtmlString);
 
 
-            var contestantId = location.search.replace("?contestantId=", "");
-            $("#" + contestantId).trigger('click');
-        });
-        // console.log($("#participans-container"));
-    }
+    //         var contestantId = location.search.replace("?contestantId=", "");
+    //         $("#" + contestantId).trigger('click');
+    //     });
+    //     // console.log($("#participans-container"));
+    // }
 
     // loadContestants();
 
@@ -79,7 +79,7 @@ function fetchContestants() {
             contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-6 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
             <div class="team-wrapper ">
                 <a href="contestant.html?contestantid=${element._id}">
-                <img id="${element._id}" src="images/${element.imageName || 'team-img1.jpg'}" class="img-responsive" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}">
+                <img id="${element._id}" src="images/${element.imageName || 'team-img.jpg'}" class="img-responsive cont-image" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}">
                 </a>
                     <div class="team-des">
                         <h4>${element.Name.toLowerCase()} ${element.PartnerName ? ' & '+ element.PartnerName : ''}</h4>
