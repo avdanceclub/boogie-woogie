@@ -996,7 +996,7 @@ h4.text-center.note {
 	}
 
 	.dancing-girl {
-		width: 170px;
+		width: 40%;
 	}
 
 	.left-mobile {
@@ -1084,6 +1084,19 @@ h4.text-center.note {
 	.navbar-brand {
 		font-size: 25px !important;
 	}
+
+	#home .event-name {
+		margin-top: 30px;
+	}
+	#home .event-name h1 {
+		font-size : 40px;
+	}
+
+	#home .event-name h1 span{
+		top: -15px;
+		font-size: 21px;
+	}
 }
+
 
 /* end 360 media quires */
