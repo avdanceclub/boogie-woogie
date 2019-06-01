@@ -212,7 +212,7 @@ exports.load = (req, res) => {
                 "PartnerName": item.customAnswer140733,
                 "PhoneNumber": item.customQuestion4,
                 "Email": item.userEmailId,
-                "Group": item.ticketName.indexOf('Group B') ? "B" : "A",
+                "Group": item.ticketName.includes('Group B') ? "B" : "A",
                 "DanceType": item.customAnswer137941
             }));
             return contestant.save()
