@@ -68,7 +68,7 @@ h2 span {
 }
 
 #event {
-	background: #fff7a0;
+	background: #dcd052;
 
 }
 
@@ -368,7 +368,7 @@ header .social-icon li a {
 #home .event-name h2 {
 	font-size: 25px;
 	color: #f90000;
-	text-shadow: 1px 1px white;
+	text-shadow: 3px 1px white;
 }
 
 #home .quote {
@@ -1020,6 +1020,7 @@ h4.text-center.note {
 
 	#home .event-name h2 {
 		font-size: 16px;
+		margin-top: 20px;
 	}
 
 	#home .event-name h5 {
@@ -1030,8 +1031,8 @@ h4.text-center.note {
 	}
 
 	#home .quote {
-		font-size: 43px;
-		margin-top: 10px;
+		font-size: 40px;
+		margin-top: 35px;
 	}
 
 	#contestant .avatar {
@@ -1046,6 +1047,23 @@ h4.text-center.note {
 
 	.title-sponsor-img img {
 		height: 250px
+	}
+
+	.title-sponsor-img.supporting img {
+		height: 170px;
+	}
+
+	.supporting-cont .col-xs-6 {
+		min-height: 220px;
+	}
+
+	.event-name h2 strong {
+		display: block;
+		font-size: 22px;
+	}
+
+	.supporting-cont h4 {
+		font-size: 20px;
 	}
 
 	.title-sponsor-img.organiser img{
