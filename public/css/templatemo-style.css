@@ -918,6 +918,11 @@ h4.text-center.note {
 .thumbnail .caption {
     color: #1e90ff;
 }
+
+.carousel-inner > .item > img {
+	margin: 0 auto;
+  }
+
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
 	#portfolio .portfolio-thumb .portfolio-overlay {
 		padding: 0px 8px;
@@ -1006,7 +1011,7 @@ h4.text-center.note {
 		display: inline-block;
 	}
 
-	.left {
+	.left-girl {
 		display: none;
 	}
 
