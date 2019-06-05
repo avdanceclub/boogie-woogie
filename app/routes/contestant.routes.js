@@ -24,5 +24,9 @@ module.exports = (app) => {
 
     //Load Townscript data to db
     app.get('/loaddata', contestants.load);
+    
+    //Load Townscript data to db
+    app.get('/sync', contestants.sync);
+
 
 }

@@ -218,7 +218,46 @@ exports.load = (req, res) => {
             return contestant.save()
         })
 
-        return Promise.all(constestantPromise).then(data=>{
+        return Promise.all(constestantPromise).then(data => {
+            res.send(data);
+        });
+    }).catch(err => {
+        throw err;
+    })
+}
+
+exports.sync = (req, res) => {
+    var options = {
+        method: 'GET',
+        uri: `https://www.townscript.com/api/registration/getRegisteredUsers?eventCode=av-boogie-woogie-222112`,
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'Authorization': process.env.TOWNSCRIPT_API_KEY
+        },
+        json: true
+    };
+
+    return requestPromise(options).then(contestatntData => {
+        console.log(contestatntData)
+        let constestantPromise = JSON.parse(contestatntData.data).map((item) => {
+            let query = {
+                'ID': item.registrationId
+            };
+            let data = encryptFields({
+                "ID": item.registrationId,
+                "Name": item.userName,
+                "PartnerName": item.customAnswer140733,
+                "PhoneNumber": item.customQuestion4,
+                "Email": item.userEmailId,
+                "Group": item.ticketName.includes('Group B') ? "B" : "A",
+                "DanceType": item.customAnswer137941
+            })
+            return Contestant.findOneAndUpdate(query, data, {
+                upsert: true
+            })
+        })
+
+        return Promise.all(constestantPromise).then(data => {
             res.send(data);
         });
     }).catch(err => {
