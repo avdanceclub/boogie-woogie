@@ -1124,5 +1124,27 @@ h4.text-center.note {
 	}
 }
 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { 
+	.navbar-default .navbar-nav li a{
+		font-size: 10px;
+	}
+
+	.navbar-brand span {
+		display: none;
+	}
+
+	.nav>li>a {
+		padding: 10px 5px;
+	}
+
+	.dancing-girl.left-girl {
+		display: none;
+	}
+
+	.dancing-girl {
+		width: 30%;
+	}
+}
+
 
 /* end 360 media quires */
