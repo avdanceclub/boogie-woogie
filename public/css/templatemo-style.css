@@ -52,6 +52,7 @@ h2 span {
 #organizers,
 #participants,
 #event,
+#gallery,
 #livestream {
 	padding-top: 60px;
 	padding-bottom: 40px;
@@ -64,7 +65,6 @@ h2 span {
 
 #organizers {
 	background: #f391a3;
-	padding: 130px 0;
 }
 
 #event {
@@ -381,7 +381,6 @@ header .social-icon li a {
 /* start sponsors */
 #sponsors {
 	background: #1c01c3;
-	padding: 130px 0;
 }
 
 #sponsors .media-heading-wrapper h3 {
