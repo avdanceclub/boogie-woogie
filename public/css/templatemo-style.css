@@ -922,6 +922,43 @@ h4.text-center.note {
 	margin: 0 auto;
   }
 
+  .whatsapp, .facebook {
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	text-align: center;
+	border: 3px solid #008000;
+	border-radius: 50%;
+	transition-duration: 0.5s;
+	display: inline-block;
+  }
+
+  .facebook {
+	border: 3px solid #0956b3;
+  }
+
+  .whatsapp .fa-whatsapp {
+	padding-top: 6px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #008000;
+  }
+
+  .facebook .fa-facebook {
+	padding-top: 6px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #0956b3;
+  }
+
+  .whatsapp:hover {
+	background-color: #008000;
+  }
+  .whatsapp:hover .fa-whatsapp {
+	color: #fff;
+  }
+  
+
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
 	#portfolio .portfolio-thumb .portfolio-overlay {
 		padding: 0px 8px;

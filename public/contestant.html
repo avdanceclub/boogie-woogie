@@ -54,24 +54,30 @@
                     <div class="info">
                         <h4>Info</h4>
                         <p>Contestant Id: <span id="contestantRegId"></span></p>
-                        <p>Group: <span id="contestantGrp"></span</p> 
+                        <p>Group: <span id="contestantGrp"></span></p>
                         <p>Dance Type: <span id="contestantDanceType">
-                                    </span</p> </div> <div class="info profile">
-                                    <h4>Vote for Me!</h4>
-                                    <div id="form-alert" class="alert alert-danger hide" role="alert"></div>
-                                    <label>Mobile Number</label>
-                                    <form id="submitPhone" action="/otp/send">
-                                        <input name="mobilenumber" type="tel" class="form-control" id="mobilenumber"
-                                            pattern="^\d{10}$" required="" disabled>
-                                        <input name="contestantid" type="hidden" id="contestantId"
-                                            value="5ce19aac471c9f54f84f49ae">
-                                        <input type="submit" class="form-control" value="Get Otp" disabled>
-                                    </form>
-                                    <form id="submitOtp" action="/otp/verify" style="display: none;">
-                                        <label>OTP</label>
-                                        <input name="number" type="number" class="form-control" id="otp">
-                                        <input type="submit" class="form-control" value="Confirm Vote">
-                                    </form>
+                            </span></p>
+                    </div>
+                    <div class="info profile">
+                        <h4>Vote for Me!</h4>
+                        <div id="form-alert" class="alert alert-danger hide" role="alert"></div>
+                        <label>Mobile Number</label>
+                        <form id="submitPhone" action="/otp/send">
+                            <input name="mobilenumber" type="tel" class="form-control" id="mobilenumber"
+                                pattern="^\d{10}$" required="" disabled>
+                            <input name="contestantid" type="hidden" id="contestantId" value="5ce19aac471c9f54f84f49ae">
+                            <input type="submit" class="form-control" value="Get Otp" disabled>
+                        </form>
+                        <form id="submitOtp" action="/otp/verify" style="display: none;">
+                            <label>OTP</label>
+                            <input name="number" type="number" class="form-control" id="otp">
+                            <input type="submit" class="form-control" value="Confirm Vote">
+                        </form>
+                    </div>
+                    <div class="info">
+                        <h4>Social Share!</h4>
+                        <div class="whatsapp"><a class="fa fa-whatsapp" href="" target="_blank"></a></div>
+                        <div class="facebook"><a class="fa fa-facebook" href="" target="_blank"></a></div>
                     </div>
                 </div>
 

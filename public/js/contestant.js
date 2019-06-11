@@ -37,6 +37,8 @@ function displayContestantsDetails(contDetails) {
     $("#contestantDanceType").text(contDetails.DanceType)
     $("#contestantGrp").text(contDetails.Group === "A" ? "A - Age 9-18 Years" : "B - Age 18+ Years")
     $("#contestantVideo").text(contDetails.DanceType)
+
+    decorateSocialShares(contDetails)
 }
 
 
@@ -103,3 +105,20 @@ $("#submitOtp").submit(function (event) {
         }
     });
 });
+
+
+function decorateSocialShares(data) {
+    //set up the url
+    var url = 'whatsapp://send?text=';
+    //define the message text
+    var text = 'Hey, check out my performance at AV Boogie Woogie, Title Sponsors Mr. Laxmikant and Madhuri Kole and vote for me here'+location.href;
+    //encode the text
+    var encodedText = encodeURIComponent(text);
+    //find the link
+    var $whatsApp = $('.whatsapp a');
+    //set the href attribute on the link
+    $whatsApp.attr('href', url + encodedText);
+
+    var fburl = "https://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.aveventmaster.co.in%2Fcontestant.html%3Fcontestantid%3D"+data._id;
+    $('.facebook a').attr('href', fburl);
+  }
