@@ -111,7 +111,7 @@ function decorateSocialShares(data) {
     //set up the url
     var url = 'whatsapp://send?text=';
     //define the message text
-    var text = 'Hey, check out my performance at AV Boogie Woogie, Title Sponsors Mr. Laxmikant and Madhuri Kole and vote for me here'+location.href;
+    var text = 'Hey, check out my performance at AV Boogie Woogie, Title Sponsors Mr. Laxmikant and Madhuri Kole and vote for me here '+location.href;
     //encode the text
     var encodedText = encodeURIComponent(text);
     //find the link
