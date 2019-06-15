@@ -30,7 +30,7 @@ $(function () {
 //Call this funtion to fetch and store in sesssion storage
 function fetchContestants() {
     var contetstatHtmlString = "";
-    $.getJSON("/contestants/", function (contestants) {
+    $.getJSON("https://mighty-mountain-60127.herokuapp.com/contestants/", function (contestants) {
         // sessionStorage.setItem('contestants', JSON.stringify({"data":contestants}));
         console.log(contestants)
         let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';

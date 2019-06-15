@@ -14,7 +14,7 @@ $(function () {
         contestantDetails = contestants.data.find(item => item._id == contestantId);
         displayContestantsDetails(contestantDetails)
     } else {
-        $.getJSON("/contestants/" + contestantId, function (contestantDetails) {
+        $.getJSON("https://mighty-mountain-60127.herokuapp.com/contestants/" + contestantId, function (contestantDetails) {
             displayContestantsDetails(contestantDetails)
         })
     }
@@ -60,7 +60,7 @@ $("#submitPhone").submit(function (event) {
         contestantId: contestantId
     }
     // Send the data using post
-    var posting = $.post(url, formData);
+    var posting = $.post("https://mighty-mountain-60127.herokuapp.com"+url, formData);
 
     // Put the results in a div
     posting.done(function (data) {
@@ -92,7 +92,7 @@ $("#submitOtp").submit(function (event) {
         url = $form.attr("action");
     formData['otp'] = $form.find("#otp").val();
     // Send the data using post
-    var posting = $.post(url, formData);
+    var posting = $.post("https://mighty-mountain-60127.herokuapp.com"+url, formData);
 
     // Put the results in a div
     posting.done(function (data) {
