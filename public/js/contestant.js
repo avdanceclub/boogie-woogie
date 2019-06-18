@@ -1,7 +1,15 @@
 /* HTML document is loaded. DOM is ready.
 -------------------------------------------*/
 var contestantId;
+var api = "/contestants/";
+// var api = "https://mighty-mountain-60127.herokuapp.com/contestants/";
 $(function () {
+    // $('.templatemo-nav').singlePageNav({
+    //     offset: $(".templatemo-nav").height(),
+    //     filter: ':not(.external)',
+    //     updateHash: false
+    // });
+
     contestantId = location.search.replace("?contestantid=", "");
     if (!contestantId) {
         alert("Contestant Id is invalid")
@@ -14,7 +22,7 @@ $(function () {
         contestantDetails = contestants.data.find(item => item._id == contestantId);
         displayContestantsDetails(contestantDetails)
     } else {
-        $.getJSON("https://mighty-mountain-60127.herokuapp.com/contestants/" + contestantId, function (contestantDetails) {
+        $.getJSON(`${api}${contestantId}`, function (contestantDetails) {
             displayContestantsDetails(contestantDetails)
         })
     }

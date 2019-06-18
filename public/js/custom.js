@@ -1,7 +1,8 @@
 /* HTML document is loaded. DOM is ready.
 -------------------------------------------*/
+var api = "/contestants";
+// var api = "https://mighty-mountain-60127.herokuapp.com/contestants/";
 $(function () {
-
     /* Smooth scroll and Scroll spy (https://github.com/ChrisWojcik/single-page-nav)    
     ---------------------------------------------------------------------------------*/
     $('.templatemo-nav').singlePageNav({
@@ -30,9 +31,10 @@ $(function () {
 //Call this funtion to fetch and store in sesssion storage
 function fetchContestants() {
     var contetstatHtmlString = "";
-    $.getJSON("https://mighty-mountain-60127.herokuapp.com/contestants/", function (contestants) {
+    $.getJSON(`${api}`, function (contestants) {
         // sessionStorage.setItem('contestants', JSON.stringify({"data":contestants}));
-        console.log(contestants)
+        console.log("Contestants Loaded Successfully")
+        // console.log(contestants)
         let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
         contestants.forEach(element => {
             contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-6 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">

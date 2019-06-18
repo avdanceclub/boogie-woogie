@@ -799,10 +799,10 @@ header .social-icon li a {
 	padding :3px 0px 0px 12px;
 }
 
-#contestant .contestant-header {
+/* #contestant .contestant-header {
 	height: 230px;
 	background: linear-gradient(0deg, #f9f295, #ff7f9f);
-}
+} */
 
 #contestant .avatar {
 	text-align: center;
@@ -827,9 +827,9 @@ header .social-icon li a {
 }
 
 #contestant .contestant-name {
-	margin-top: 100px;
-	font-size: 30px;
-	color: darkslategrey;
+	margin-top: 80px;
+	font-size: 41px;
+	color: white;
 	margin-left: 15px;
 	text-transform: capitalize;
 }
@@ -1082,8 +1082,8 @@ h4.text-center.note {
 
 	#contestant .contestant-name {
 		margin-top: 10px;
-		color: white;
-		text-align: center
+		text-align: center;
+		font-size: 28px;
 	}
 
 	.title-sponsor-img img {
