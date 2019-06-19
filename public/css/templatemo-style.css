@@ -91,7 +91,7 @@ h2 span {
 
 #event .date-venue .thumbnail {
 	background: white;
-	min-height: 200px;
+	min-height: 270px;
 }
 
 #event .event-note {
@@ -1121,6 +1121,10 @@ h4.text-center.note {
 
 	.team-wrapper {
 		min-height: 250px
+	}
+
+	#event .date-venue .thumbnail {
+		min-height: 200px;
 	}
 }
 
