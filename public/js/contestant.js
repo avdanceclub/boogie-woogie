@@ -1,8 +1,8 @@
 /* HTML document is loaded. DOM is ready.
 -------------------------------------------*/
 var contestantId;
-var api = "/contestants/";
-// var api = "https://mighty-mountain-60127.herokuapp.com/contestants/";
+// var api = "/contestants/";
+var api = "https://mighty-mountain-60127.herokuapp.com/contestants/";
 $(function () {
     // $('.templatemo-nav').singlePageNav({
     //     offset: $(".templatemo-nav").height(),

@@ -1,7 +1,7 @@
 /* HTML document is loaded. DOM is ready.
 -------------------------------------------*/
-var api = "/contestants";
-// var api = "https://mighty-mountain-60127.herokuapp.com/contestants/";
+// var api = "/contestants";
+var api = "https://mighty-mountain-60127.herokuapp.com/contestants/";
 $(function () {
     /* Smooth scroll and Scroll spy (https://github.com/ChrisWojcik/single-page-nav)    
     ---------------------------------------------------------------------------------*/
