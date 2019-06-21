@@ -11,6 +11,7 @@ const ContestantSchema = mongoose.Schema({
   VoterId : [String],
   Votes : {type: Number, default: 0},
   Semifinalist : { type: Boolean, default: false },
+  Finalist : { type: Boolean, default: false },
   YoutubeLink : String
 }, {
     timestamps: true
