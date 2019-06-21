@@ -34,7 +34,8 @@ function fetchContestants() {
     $.getJSON(`${api}`, function (contestants) {
         // sessionStorage.setItem('contestants', JSON.stringify({"data":contestants}));
         console.log("Contestants Loaded Successfully")
-        // console.log(contestants)
+        contestants.sort(dynamicSort("Group"))
+        console.log(contestants)
         let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
         contestants.forEach(element => {
             contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-6 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
@@ -55,6 +56,18 @@ function fetchContestants() {
         });
         $("#participans-container").append(contetstatHtmlString);
     })
+}
+
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
 }
 
 /* start preloader */
