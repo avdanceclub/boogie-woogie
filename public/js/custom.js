@@ -35,7 +35,7 @@ function fetchContestants() {
         // sessionStorage.setItem('contestants', JSON.stringify({"data":contestants}));
         console.log("Contestants Loaded Successfully")
         contestants.sort(dynamicSort("Group"))
-        console.log(contestants)
+        // console.log(contestants)
         let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
         contestants.forEach(element => {
             contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-6 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
