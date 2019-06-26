@@ -390,10 +390,18 @@ header .social-icon li a {
 	padding-left: 52px;
 }
 
-@ #participants .note {
+#participants .note {
 	color: black;
 	margin-top: -20px;
 	margin-bottom: 25px;
+}
+
+.participants-filter .btn {
+	margin: 20px;
+}
+
+.participants-filter .active {
+	border: 2px solid aliceblue;
 }
 
 /* end sponsors */

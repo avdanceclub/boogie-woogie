@@ -28,16 +28,25 @@ $(function () {
     fetchContestants();
 
 });
+let contestants;
 //Call this funtion to fetch and store in sesssion storage
 function fetchContestants() {
     var contetstatHtmlString = "";
-    $.getJSON(`${api}`, function (contestants) {
+    $.getJSON(`${api}`, function (contestantsAll) {
         // sessionStorage.setItem('contestants', JSON.stringify({"data":contestants}));
         console.log("Contestants Loaded Successfully")
-        contestants.sort(dynamicSort("Group"))
-        // console.log(contestants)
-        let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
-        contestants.forEach(element => {
+        contestantsAll.sort(dynamicSort("Group"));
+        contestants = contestantsAll
+        // console.log(contestants);
+        filterParticipants('all');
+        $(".all").addClass("active");
+    })
+}
+
+function prepareContestantHtml(participants){    
+    var contetstatHtmlString = "";
+    let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
+    participants.forEach(element => {
             contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-6 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
             <div class="team-wrapper ">
                 <a href="contestant.html?contestantid=${element._id}">
@@ -54,8 +63,11 @@ function fetchContestants() {
             </div>
         </div>`
         });
-        $("#participans-container").append(contetstatHtmlString);
-    })
+
+        if(participants.length < 1){
+            contetstatHtmlString = "<h3 class='text-center note'>We will update the data after auditions and semifinal!</h3>"
+        };
+        $("#participans-container").html("").append(contetstatHtmlString);
 }
 
 function dynamicSort(property) {
@@ -68,6 +80,22 @@ function dynamicSort(property) {
         var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
         return result * sortOrder;
     }
+}
+
+function filterParticipants(filter){
+    $(".participants-filter .btn").removeClass("active");
+    $(".participants-filter ."+filter).addClass("active");
+if(filter === "all"){
+    prepareContestantHtml(contestants)
+}
+else if(filter === "semi"){
+    let semiFinalist = contestants.filter((ele)=> ele.Semifinalist)
+    prepareContestantHtml(semiFinalist)
+}
+else if(filter === "final"){
+    let finalist = contestants.filter((ele)=> ele.Finalist)
+    prepareContestantHtml(finalist)
+}
 }
 
 /* start preloader */

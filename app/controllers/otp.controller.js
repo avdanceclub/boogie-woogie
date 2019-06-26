@@ -85,7 +85,7 @@ exports.verify = (req, res) => {
 const sendOTPRequestToProvider = (phoneNumber) => {
     var options = {
         method: 'GET',
-        uri: `http://2factor.in/API/V1/${process.env.TWO_FACTOR_API_KEY}/SMS/${phoneNumber}/AUTOGEN/AVDANC`,
+        uri: `http://2factor.in/API/V1/${process.env.TWO_FACTOR_API_KEY}/SMS/${phoneNumber}/AUTOGEN/BGWG`,
         headers: {
             'content-type': 'application/x-www-form-urlencoded'
         },
