@@ -36,6 +36,7 @@ $(function () {
 })
 
 function displayContestantsDetails(contDetails) {
+    console.log(contDetails);
     var contestantName = contDetails.Name.toLowerCase();
     if (contDetails.PartnerName){
         contestantName = contestantName+" & "+contDetails.PartnerName.toLowerCase();
@@ -45,6 +46,7 @@ function displayContestantsDetails(contDetails) {
     $("#contestantDanceType").text(contDetails.DanceType)
     $("#contestantGrp").text(contDetails.Group === "A" ? "A - Age 9-18 Years" : "B - Age 18+ Years")
     $("#contestantVideo").text(contDetails.DanceType)
+    $("#contestantImage").attr("src", `https://aveventmaster.s3.ap-south-1.amazonaws.com/participants/${contDetails.AuditionBibNo}.JPG`)
 
     decorateSocialShares(contDetails)
 }

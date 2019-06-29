@@ -429,7 +429,7 @@ header .social-icon li a {
 	padding: 11px 11px 0px 11px;
 	margin-bottom: 30px;
 	text-align: center;
-	background: white;
+	background: #a384e2;
 	min-height: 334px;
 	position: relative
 }
@@ -437,7 +437,7 @@ header .social-icon li a {
 .team-des h4 {
 	font-size: 15px;
 	margin-bottom: 0;
-	color: #000000;
+	color: #fff;
 	text-transform: capitalize;
 }
 
