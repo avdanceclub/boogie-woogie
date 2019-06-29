@@ -226,6 +226,23 @@ exports.load = (req, res) => {
     })
 }
 
+exports.batchupdate = (req, res) => {
+    let constestantPromise = req.body.updateList.map((item) => {
+        let query = {
+            'ID': item.RegistrationId
+        };
+        let data = encryptFields({
+            "Semifinalist" : item.Semifinalist,
+            "AuditionBibNo" : item.AuditionBibNo
+        })
+        return Contestant.findOneAndUpdate(query, data)
+    })
+    // res.send({"result" : req.body.updateList.length})
+    return Promise.all(constestantPromise).then(data => {
+        res.send(data);
+    });
+}
+
 exports.sync = (req, res) => {
     var options = {
         method: 'GET',

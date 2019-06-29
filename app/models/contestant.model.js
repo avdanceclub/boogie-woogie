@@ -10,6 +10,8 @@ const ContestantSchema = mongoose.Schema({
   DanceType: String,
   VoterId : [String],
   Votes : {type: Number, default: 0},
+  AuditionBibNo : {type: Number, default: 0},
+  SemiFinalBibNo : {type: Number, default: 0},
   Semifinalist : { type: Boolean, default: false },
   Finalist : { type: Boolean, default: false },
   YoutubeLink : String

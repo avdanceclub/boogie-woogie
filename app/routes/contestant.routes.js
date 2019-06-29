@@ -28,5 +28,6 @@ module.exports = (app) => {
     //Load Townscript data to db
     app.get('/sync', contestants.sync);
 
-
+    app.post('/batchupdate', contestants.batchupdate);
+    
 }

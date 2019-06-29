@@ -38,8 +38,7 @@ function fetchContestants() {
         contestantsAll.sort(dynamicSort("Group"));
         contestants = contestantsAll
         // console.log(contestants);
-        filterParticipants('all');
-        $(".all").addClass("active");
+        filterParticipants('semi');
     })
 }
 
@@ -89,7 +88,7 @@ if(filter === "all"){
     prepareContestantHtml(contestants)
 }
 else if(filter === "semi"){
-    let semiFinalist = contestants.filter((ele)=> ele.Semifinalist)
+    let semiFinalist = contestants.filter((ele)=> ele.Semifinalist);
     prepareContestantHtml(semiFinalist)
 }
 else if(filter === "final"){
