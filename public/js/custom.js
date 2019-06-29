@@ -45,7 +45,7 @@ function fetchContestants() {
 
 function prepareContestantHtml(participants){    
     var contetstatHtmlString = "";
-    let youtube = 'https://www.youtube.com/embed/WA4_DJvrU30';
+    let youtube = 'https://www.youtube.com/embed/qR7QX9cS6cc';
     participants.forEach(element => {
             contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-6 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
             <div class="team-wrapper ">
