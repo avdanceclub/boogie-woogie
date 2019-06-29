@@ -838,6 +838,7 @@ header .social-icon li a {
 	margin-top: 80px;
 	font-size: 41px;
 	color: white;
+	text-shadow: 2px 2px #2d2929;
 	margin-left: 15px;
 	text-transform: capitalize;
 }
