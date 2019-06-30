@@ -42,59 +42,62 @@ function fetchContestants() {
     })
 }
 
-function prepareContestantHtml(participants){    
+function prepareContestantHtml(participants) {
     var contetstatHtmlString = "";
-    let youtube = 'https://www.youtube.com/embed/qR7QX9cS6cc';
-    participants.forEach(element => {
-            contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-6 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
-            <div class="team-wrapper ">
-                <a href="contestant.html?contestantid=${element._id}">
-                <img id="${element._id}" src="https://aveventmaster.s3.ap-south-1.amazonaws.com/participants/${element.AuditionBibNo}.JPG" onerror="this.onerror=null;this.src='images/team-img.jpg';" class="img-responsive cont-image" alt="team img 1" data-toggle="modal" data-id="${element.ID}" data-contestant-id="${element._id}" data-name="${element.Name}" data-video="${element.youtube || youtube}">
-                </a>
-                    <div class="team-des">
-                        <h4>${element.Name.toLowerCase()} ${element.PartnerName ? ' & '+ element.PartnerName : ''}</h4>
-                    </div>
-                    <div class="vote-btn-cont">
-                    <a class='vote-btn' href="contestant.html?contestantid=${element._id}">
-                    <i class='fa fa-thumbs-up' title='Vote for this contestant'></i>
-                    </a>
-                    </div>
-            </div>
-        </div>`
-        });
+    let groupA = participants.filter(ele => ele.Group === "A");
+    let groupB = participants.filter(ele => ele.Group === "B");
+    
+    $("#participans-container-a").html("").append(getParticipantHTML(groupA));
+    $("#participans-container-b").html("").append(getParticipantHTML(groupB));
+}
 
-        if(participants.length < 1){
-            contetstatHtmlString = "<h3 class='text-center note'>We will update the data after auditions and semifinal!</h3>"
-        };
-        $("#participans-container").html("").append(contetstatHtmlString);
+function getParticipantHTML(list) {
+    var contetstatHtmlString = "";
+    list.forEach(element => {
+        contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-6 fadeIn" data-wow-offset="0" data-wow-delay="0.5s">
+    <div class="team-wrapper ">
+        <a href="contestant.html?contestantid=${element._id}">
+        <img id="${element._id}" src="https://aveventmaster.s3.ap-south-1.amazonaws.com/participants/${element.AuditionBibNo}.JPG" onerror="this.onerror=null;this.src='images/team-img.jpg';" class="img-responsive cont-image" alt="team img 1" data-toggle="modal">
+        </a>
+            <div class="team-des">
+                <h4>${element.Name.toLowerCase()} ${element.PartnerName ? ' & '+ element.PartnerName : ''}</h4>
+            </div>
+            <div class="vote-btn-cont">
+            <a class='vote-btn' href="contestant.html?contestantid=${element._id}">
+            <i class='fa fa-thumbs-up' title='Vote for this contestant'></i>
+            </a>
+            </div>
+    </div>
+</div>`
+    });
+
+    return contetstatHtmlString;
 }
 
 function dynamicSort(property) {
     var sortOrder = 1;
-    if(property[0] === "-") {
+    if (property[0] === "-") {
         sortOrder = -1;
         property = property.substr(1);
     }
-    return function (a,b) {
+    return function (a, b) {
         var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
         return result * sortOrder;
     }
 }
 
-function filterParticipants(filter){
+function filterParticipants(filter) {
     $(".participants-filter .btn").removeClass("active");
-    $(".participants-filter ."+filter).addClass("active");
-if(filter === "all"){
-    prepareContestantHtml(contestants)
-}
-else if(filter === "semi"){
-    let semiFinalist = contestants.filter((ele)=> ele.Semifinalist);
-    prepareContestantHtml(semiFinalist)
-}
-else if(filter === "final"){
-    let finalist = contestants.filter((ele)=> ele.Finalist)
-    prepareContestantHtml(finalist)
-}
+    $(".participants-filter ." + filter).addClass("active");
+    if (filter === "all") {
+        prepareContestantHtml(contestants)
+    } else if (filter === "semi") {
+        let semiFinalist = contestants.filter((ele) => ele.Semifinalist);
+        prepareContestantHtml(semiFinalist)
+    } else if (filter === "final") {
+        let finalist = contestants.filter((ele) => ele.Finalist)
+        prepareContestantHtml(finalist)
+    }
 }
 
 /* start preloader */
