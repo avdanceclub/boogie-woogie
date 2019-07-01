@@ -36,7 +36,8 @@ $(function () {
 })
 
 function displayContestantsDetails(contDetails) {
-    console.log(contDetails);
+    // console.log(contDetails);
+    let goldenTicket = [53,59,03,33];
     var contestantName = contDetails.Name.toLowerCase();
     if (contDetails.PartnerName){
         contestantName = contestantName+" & "+contDetails.PartnerName.toLowerCase();
@@ -48,6 +49,9 @@ function displayContestantsDetails(contDetails) {
     $("#contestantVideo").text(contDetails.DanceType)
     $("#contestantImage").attr("src", `https://aveventmaster.s3.ap-south-1.amazonaws.com/participants/${contDetails.AuditionBibNo}.JPG`)
 
+    if(goldenTicket.includes(contDetails.AuditionBibNo)){
+        $(".votingpanel").html("<img src='images/goldenbig.png'></img>")
+    }
     decorateSocialShares(contDetails)
 }
 

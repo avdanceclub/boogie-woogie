@@ -415,6 +415,10 @@ header .social-icon li a {
 	position: relative;
 }
 
+.golden .team-wrapper {
+	background: #daa520;
+}
+
 #team .team-wrapper:hover {
 	cursor: pointer;
 	opacity: 0.4;
@@ -881,6 +885,7 @@ h4.text-center.note {
 	color: royalblue;
 }
 
+
 .vote-btn {
 	height: 40px;
 	width: 40px;
@@ -903,6 +908,21 @@ h4.text-center.note {
 	margin-left: -10px;
 }
 
+.golden .vote-btn {
+	background: url('../images/golden.png') no-repeat;
+	border-radius: 0%;
+	width: 88px;
+	border: 0;
+}
+
+.golden .vote-btn-cont {
+	bottom: -25px;
+}
+
+.golden .vote-btn i{
+	display: none;
+}
+
 .title-sponsor-img img {
 	background: white;
 	height: 300px;
@@ -917,6 +937,11 @@ h4.text-center.note {
 .cont-image {
 	background-color: black;
 	opacity: 0.8;
+}
+.votingpanel img{
+	width: 210px;
+	margin: 0 auto;
+	display: block;
 }
 
 .organiser img {
