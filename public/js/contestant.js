@@ -3,7 +3,7 @@
 var contestantId;
 var group;
 // var api = "/contestants/";
-var apiHost = "https://mighty-mountain-60127.herokuapp.com/";
+var apiHost = "https://mighty-mountain-60127.herokuapp.com";
 // var apiHost = "http://localhost:3000"
 
 $(function () {
