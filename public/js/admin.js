@@ -5,7 +5,7 @@ $(function () {
         var contetstatHtmlString = "";
         let counter =1;
         $.getJSON("/contestants/", function (contestants) {
-            contestants.forEach(element => {
+            contestants.filter(cont=> cont.Semifinalist).sort().forEach(element => {
                 contetstatHtmlString = `${contetstatHtmlString}<tr>
                 <th scope="row">${counter}</th>
                 <td>${element.ID}</td>

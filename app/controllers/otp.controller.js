@@ -1,6 +1,7 @@
 var requestPromise = require('request-promise');
 const Contestant = require('../models/contestant.model.js');
-const Vote = require('../models/vote.model.js');
+const GroupAVote = require('../models/groupavote.model.js');
+const GroupBVote = require('../models/groupbvote.model.js');
 const dataprotect = require('../utils/dataprotect');
 
 
@@ -13,27 +14,19 @@ exports.send = (req, res) => {
             message: "Request can not be empty"
         });
     }
-
-    return checkDuplicateVoter(dataprotect.encrypt(req.body.phoneNumber)).then(data => {
-        //During developement just asume there are no duplicates and stub the response
-        if(process.env.NODE_ENV=='development'){
-            return res.send({
-                "Status": "Success",
-                "Details": "6ec30d77-3f1e-4789-b855-9a3872563969"
-            })
-        }
-
-        if (data) {
-            return res.status(200).send({
-                Status: "You have already voted!"
-            })
-        }
-
-        //Proceed to send the OTP
-        return sendOTPRequestToProvider(req.body.phoneNumber).then(otpRes => {
-            res.status(200).send(otpRes)
-        });
-    })
+    
+        return checkDuplicateVoter(dataprotect.encrypt(req.body.phoneNumber), req.body.group).then(data => {
+            if (data) {
+                return res.status(200).send({
+                    Status: "You have already voted for contestant in this Group!"
+                })
+            }
+    
+            //Proceed to send the OTP
+            return sendOTPRequestToProvider(req.body.phoneNumber).then(otpRes => {
+                res.status(200).send(otpRes)
+            });
+        })
 };
 
 //Verify OTP
@@ -45,7 +38,7 @@ exports.verify = (req, res) => {
         });
     }
 
-    return checkDuplicateVoter(dataprotect.encrypt(req.body.phoneNumber)).then(data => {
+    return checkDuplicateVoter(dataprotect.encrypt(req.body.phoneNumber),req.body.group).then(data => {
         if (data && process.env.NODE_ENV !='development') {
            return res.status(200).send({
                 Status: "Your vote is already registered!"
@@ -66,9 +59,19 @@ exports.verify = (req, res) => {
                     new: true
                 }).then(conts => {
                     // update the vote 
-                    let vote = new Vote({
-                        VoterPhoneNumber: dataprotect.encrypt(verficationRes.voterPhone)
-                    })
+                    let vote;
+                    if(conts.Group === 'A'){
+                        vote = new GroupAVote({
+                            VoterPhoneNumber: dataprotect.encrypt(verficationRes.voterPhone),
+                            ContestantId : req.body.contestantId
+                        })
+                    } else {
+                        vote = new GroupBVote({
+                            VoterPhoneNumber: dataprotect.encrypt(verficationRes.voterPhone),
+                            ContestantId : req.body.contestantId
+                        })
+                    }
+                    
                     return vote.save().then((data) => {
                         console.log(data)
                         delete verficationRes.phoneNumber;
@@ -121,29 +124,14 @@ const verifyOTPFromProvider = (verifyBody) => {
     })
 }
 
-const checkDuplicateVoter = (phoneNumber) => {
-    return Vote.findOne({
-        VoterPhoneNumber: phoneNumber
-    })
+const checkDuplicateVoter = (phoneNumber, group) => {
+    if(group === 'A'){
+        return GroupAVote.findOne({
+            VoterPhoneNumber: phoneNumber
+        });
+    } else {
+        return GroupBVote.findOne({
+            VoterPhoneNumber: phoneNumber
+        })
+    }
 }
-
-
-
-// return Contestant.findById(req.body.contestantId).then(contestant => {
-//     if (contestant && contestant.VoterId.includes(dataprotect.encrypt(req.body.phoneNumber))) {
-//         res.status(200).send({
-//             Status: "You have alredy voted for this Contestant"
-//         })
-//     }
-//     return sendOTPRequestToProvider(req.body.phoneNumber).then(otpRes => {
-//         res.status(200).send(otpRes)
-//     });
-// })
-
-
-
-// // Temperory Stub Remove in prod - response of send otp from 2 factor
-// return Promise.resolve({
-//     "Status": "Success",
-//     "Details": "d4d26cb3-b204-4a50-af6b-a6e937ca0f05"
-// });

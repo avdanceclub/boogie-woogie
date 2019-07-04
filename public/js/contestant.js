@@ -1,15 +1,12 @@
 /* HTML document is loaded. DOM is ready.
 -------------------------------------------*/
 var contestantId;
+var group;
 // var api = "/contestants/";
-var api = "https://mighty-mountain-60127.herokuapp.com/contestants/";
-$(function () {
-    // $('.templatemo-nav').singlePageNav({
-    //     offset: $(".templatemo-nav").height(),
-    //     filter: ':not(.external)',
-    //     updateHash: false
-    // });
+// var apiHost = "https://mighty-mountain-60127.herokuapp.com/";
+var apiHost = "http://localhost:3000"
 
+$(function () {
     contestantId = location.search.replace("?contestantid=", "");
     if (!contestantId) {
         alert("Contestant Id is invalid")
@@ -22,7 +19,7 @@ $(function () {
         contestantDetails = contestants.data.find(item => item._id == contestantId);
         displayContestantsDetails(contestantDetails)
     } else {
-        $.getJSON(`${api}${contestantId}`, function (contestantDetails) {
+        $.getJSON(`${apiHost}/contestants/${contestantId}`, function (contestantDetails) {
             displayContestantsDetails(contestantDetails)
         })
     }
@@ -37,7 +34,8 @@ $(function () {
 
 function displayContestantsDetails(contDetails) {
     // console.log(contDetails);
-    let goldenTicket = [53,59,03,33];
+    let goldenTicket = [53,59,3,33];
+    group = contDetails.Group;
     var contestantName = contDetails.Name.toLowerCase();
     if (contDetails.PartnerName){
         contestantName = contestantName+" & "+contDetails.PartnerName.toLowerCase();
@@ -71,10 +69,11 @@ $("#submitPhone").submit(function (event) {
 
     formData = {
         phoneNumber: phone,
-        contestantId: contestantId
+        contestantId: contestantId,
+        group : group
     }
     // Send the data using post
-    var posting = $.post("https://mighty-mountain-60127.herokuapp.com"+url, formData);
+    var posting = $.post(apiHost+url, formData);
 
     // Put the results in a div
     posting.done(function (data) {
@@ -105,8 +104,9 @@ $("#submitOtp").submit(function (event) {
     var $form = $(this),
         url = $form.attr("action");
     formData['otp'] = $form.find("#otp").val();
+    formData['group'] = group;
     // Send the data using post
-    var posting = $.post("https://mighty-mountain-60127.herokuapp.com"+url, formData);
+    var posting = $.post(apiHost+url, formData);
 
     // Put the results in a div
     posting.done(function (data) {
@@ -117,7 +117,9 @@ $("#submitOtp").submit(function (event) {
             $("#form-alert").removeClass('alert-success show').addClass('alert-danger show').text('Please enter the correct OTP.');
             $(this).find(":submit").prop("disabled", false);
         }
-    });
+    }).fail( function(xhr, textStatus, errorThrown) {
+        $("#form-alert").removeClass('alert-success hide').addClass('show alert-danger').text("There was some Error, please try again.");
+    });;
 });
 
 

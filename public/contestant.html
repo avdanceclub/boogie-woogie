@@ -95,9 +95,8 @@
                         <label>Mobile Number</label>
                         <form id="submitPhone" action="/otp/send">
                             <input name="mobilenumber" type="tel" class="form-control" id="mobilenumber"
-                                pattern="^\d{10}$" required="" disabled>
-                            <input name="contestantid" type="hidden" id="contestantId" value="5ce19aac471c9f54f84f49ae">
-                            <input type="submit" class="form-control" value="Get Otp" disabled>
+                                pattern="^\d{10}$" required="">
+                            <input type="submit" class="form-control" value="Get Otp">
                         </form>
                         <form id="submitOtp" action="/otp/verify" style="display: none;">
                             <label>OTP</label>
