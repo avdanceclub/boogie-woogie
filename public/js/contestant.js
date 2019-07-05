@@ -54,8 +54,17 @@ function displayContestantsDetails(contDetails) {
 }
 
 
+function showSuccessAnimation() {
+    $('#myModal').modal('show');
+    $(".check").attr("class", "check check-complete success");
+    $(".fill").attr("class", "fill fill-complete success");
+    $(".path").attr("class", "path path-complete");
+}
+
 // Attach a submit handler to the form
 $("#submitPhone").submit(function (event) {
+    // $('#myModal').modal('show');
+
     // Stop form from submitting normally
     event.preventDefault();
     // prevent duplicate form submission
@@ -87,6 +96,7 @@ $("#submitPhone").submit(function (event) {
             $("#form-alert").removeClass('alert-danger hide').addClass('alert-success show').text("You should receive OTP soon!");
             // $("#form-alert").toggleClass('hide').removeClass('alert-danger').addClass('alert-success').text("You should receive OTP soon!");
         } else {
+            // $('#myModal').modal('hide');
             $("#form-alert").removeClass('hide').addClass('alert-danger show').text(data.Status);
         }
     });
@@ -113,9 +123,12 @@ $("#submitOtp").submit(function (event) {
         console.log(data);
         if (data.Status === 'Success') {
             $("#form-alert").removeClass('hide alert-danger').addClass('alert-success show').text("Your vote is registered. Thank you!");
+            showSuccessAnimation();
         } else if (data.Status === 'Error' && data.Details == 'OTP Mismatch') {
             $("#form-alert").removeClass('alert-success show').addClass('alert-danger show').text('Please enter the correct OTP.');
             $(this).find(":submit").prop("disabled", false);
+        } else if (data.Status === "Your vote is already registered!"){
+            $("#form-alert").removeClass('alert-success show').addClass('alert-danger show').text('Your vote is already registered!');
         }
     }).fail( function(xhr, textStatus, errorThrown) {
         $("#form-alert").removeClass('alert-success hide').addClass('show alert-danger').text("There was some Error, please try again.");
