@@ -888,12 +888,14 @@ h4.text-center.note {
 
 .vote-btn {
 	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-	background-color: royalblue;
-	display: inline-block;
-	padding-top: 7px;
-	border: 2px solid white;
+    width: 152px;
+    /* border-radius: 50%; */
+    background-color: royalblue;
+    display: inline-block;
+    padding-top: 7px;
+    border: 2px solid white;
+    color: white;
+    font-weight: bold;
 }
 
 .vote-btn .fa-thumbs-up {

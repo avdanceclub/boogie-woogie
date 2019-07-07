@@ -232,8 +232,7 @@ exports.batchupdate = (req, res) => {
             'ID': item.RegistrationId
         };
         let data = encryptFields({
-            "Semifinalist" : item.Semifinalist,
-            "AuditionBibNo" : item.AuditionBibNo
+            "SemiFinalBibNo" : item.SemiFinalBibNo
         })
         return Contestant.findOneAndUpdate(query, data)
     })
