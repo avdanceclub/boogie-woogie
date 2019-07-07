@@ -2,6 +2,8 @@
 -------------------------------------------*/
 var contestantId;
 var group;
+
+var youtubeCollection = {"bib1" : "WpUwkrymVOQ", "bib2" : "ml1TRx1jmBA", "bib3" : "y_bcHMtFTl0", "bib4" : "avUc455Uwsk", "bib5" : "pi63WOE1Iv8", "bib6" : "XFGIwJy7_I8", "bib7" : "Snpo6XjnuXQ", "bib8" : "1ZDtQuRqcGo", "bib9" : "F1Ve6yba2fA", "bib10" : "2z9m1MB6CP0", "bib11" : "kjf7oIWFh8E", "bib12" : "4BPnTvLhIiM", "bib13" : "mR92eGCVU1M", "bib14" : "rgPPnDTvjhw", "bib15" : "qWxNqV88BkE", "bib16" : "pwXh3a65tgM", "bib18" : "cMb-HyeM8Fc", "bib19" : "Vv9oaOd2VdM", "bib20" : "tZq6YPl5sMI", "bib21" : "e4Mt6tESOfE", "bib22" : "aFF1qcw_WuE", "bib23" : "tM68b7qvtl0"}
 // var api = "/contestants/";
 var apiHost = "https://mighty-mountain-60127.herokuapp.com";
 // var apiHost = "http://localhost:3000"
@@ -40,12 +42,21 @@ function displayContestantsDetails(contDetails) {
     if (contDetails.PartnerName){
         contestantName = contestantName+" & "+contDetails.PartnerName.toLowerCase();
     }
+
+    var youtubeid;
+    if(youtubeCollection['bib'+contDetails.SemiFinalBibNo]) {
+        youtubeid = youtubeCollection['bib'+contDetails.SemiFinalBibNo]
+    }
+
+
     $("#contestantName").html(contestantName)
     $("#contestantRegId").text(contDetails.ID)
     $("#contestantDanceType").text(contDetails.DanceType)
     $("#contestantGrp").text(contDetails.Group === "A" ? "A - Age 9-18 Years" : "B - Age 18+ Years")
-    $("#contestantVideo").text(contDetails.DanceType)
-    $("#contestantImage").attr("src", `https://aveventmaster.s3.ap-south-1.amazonaws.com/participants/${contDetails.AuditionBibNo}.JPG`)
+    if(youtubeid) {
+        $("#contestantVideo").attr("src", `https://www.youtube.com/embed/${youtubeCollection['bib'+contDetails.SemiFinalBibNo]}?rel=0`)
+    }
+    $("#contestantImage").attr("src", `images/participants/${contDetails.AuditionBibNo}.JPG`)
 
     if(goldenTicket.includes(contDetails.AuditionBibNo)){
         $(".votingpanel").html("<img src='images/goldenbig.png'></img>")

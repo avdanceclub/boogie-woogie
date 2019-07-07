@@ -58,7 +58,7 @@ function getParticipantHTML(list) {
         contetstatHtmlString = `${contetstatHtmlString}<div class="col-md-3 col-sm-6 col-xs-6 ${goldenTicket.includes(element.AuditionBibNo) ? "golden" : ""}" data-wow-offset="0" data-wow-delay="0.5s">
     <div class="team-wrapper ">
         <a href="contestant.html?contestantid=${element._id}">
-        <img id="${element._id}" src="https://aveventmaster.s3.ap-south-1.amazonaws.com/participants/${element.AuditionBibNo}.JPG" onerror="this.onerror=null;this.src='images/team-img.jpg';" class="img-responsive cont-image" alt="team img 1" data-toggle="modal">
+        <img id="${element._id}" src="images/participants/${element.AuditionBibNo}.JPG" onerror="this.onerror=null;this.src='images/team-img.jpg';" class="img-responsive cont-image" alt="team img 1" data-toggle="modal">
         </a>
             <div class="team-des">
                 <h4>${element.Name.toLowerCase()} ${element.PartnerName ? ' & '+ element.PartnerName : ''}</h4>
