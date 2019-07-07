@@ -37,6 +37,7 @@ $(function () {
 function displayContestantsDetails(contDetails) {
     // console.log(contDetails);
     let goldenTicket = [53,59,3,33];
+    
     group = contDetails.Group;
     var contestantName = contDetails.Name.toLowerCase();
     if (contDetails.PartnerName){
@@ -60,6 +61,10 @@ function displayContestantsDetails(contDetails) {
 
     if(goldenTicket.includes(contDetails.AuditionBibNo)){
         $(".votingpanel").html("<img src='images/goldenbig.png'></img>")
+    } 
+
+    if(contDetails.SemiFinalBibNo === 34) {
+        $(".votingpanel").html("Voting Disabled");
     }
     decorateSocialShares(contDetails)
 }
