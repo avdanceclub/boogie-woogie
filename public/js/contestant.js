@@ -3,7 +3,8 @@
 var contestantId;
 var group;
 
-var youtubeCollection = {"bib1" : "WpUwkrymVOQ", "bib2" : "ml1TRx1jmBA", "bib3" : "y_bcHMtFTl0", "bib4" : "avUc455Uwsk", "bib5" : "pi63WOE1Iv8", "bib6" : "XFGIwJy7_I8", "bib7" : "Snpo6XjnuXQ", "bib8" : "1ZDtQuRqcGo", "bib9" : "F1Ve6yba2fA", "bib10" : "2z9m1MB6CP0", "bib11" : "kjf7oIWFh8E", "bib12" : "4BPnTvLhIiM", "bib13" : "mR92eGCVU1M", "bib14" : "rgPPnDTvjhw", "bib15" : "qWxNqV88BkE", "bib16" : "pwXh3a65tgM", "bib18" : "cMb-HyeM8Fc", "bib19" : "Vv9oaOd2VdM", "bib20" : "tZq6YPl5sMI", "bib21" : "e4Mt6tESOfE", "bib22" : "aFF1qcw_WuE", "bib23" : "tM68b7qvtl0"}
+var youtubeCollection = {"bib1" : "WpUwkrymVOQ", "bib2" : "ml1TRx1jmBA", "bib3" : "y_bcHMtFTl0", "bib4" : "avUc455Uwsk", "bib5" : "pi63WOE1Iv8", "bib6" : "XFGIwJy7_I8", "bib7" : "Snpo6XjnuXQ", "bib8" : "1ZDtQuRqcGo", "bib9" : "F1Ve6yba2fA", "bib10" : "2z9m1MB6CP0", "bib11" : "kjf7oIWFh8E", "bib12" : "4BPnTvLhIiM", "bib13" : "mR92eGCVU1M", "bib14" : "rgPPnDTvjhw", "bib15" : "qWxNqV88BkE", "bib16" : "pwXh3a65tgM", "bib18" : "cMb-HyeM8Fc", "bib19" : "Vv9oaOd2VdM", "bib20" : "tZq6YPl5sMI", "bib21" : "e4Mt6tESOfE", "bib22" : "aFF1qcw_WuE", "bib23" : "tM68b7qvtl0" ,"bib24" : "h0e-7UxfY88" ,"bib26" : "YX5jIJavicQ", "bib27" : "L2xxR6bLA_I", "bib28" : "VWIF6yyErr4", "bib29" : "-JZUytBJjaw", "bib30" : "lxiY-DYtQKg", "bib31" : "gW6qZXnYgDo", "bib32" : "Q1ZYFzEYxr4", "bib33" : "VqO0VNlpbKs", "bib35" : "GHEGAi0hP3k", "bib36" : "GaFJd9w03Ds", "bib37" : "b2ax-AWuF1Q", "bib38" : "gqBOFnueQsk", "bib39" : "y35LlI6fsSI", "bib40" : "LqHiBSNEib8", "bib41" : "Scu34QJXiqk", "bib42" : "BuFmeRHJQDw", "bib43" : "UBfod0uanoM", "bib44" : "gcTXfmOD8aI", "bib45" : "wEZ677F7qRQ", "bib47" : "YdD9UGl1UvI", "bib48" : "6pt7AQdStx0", "bib49" : "KlMILNDtKf8"}
+
 // var api = "/contestants/";
 var apiHost = "https://mighty-mountain-60127.herokuapp.com";
 // var apiHost = "http://localhost:3000"
@@ -44,7 +45,7 @@ function displayContestantsDetails(contDetails) {
         contestantName = contestantName+" & "+contDetails.PartnerName.toLowerCase();
     }
 
-    var youtubeid;
+    var youtubeid = "qR7QX9cS6cc";
     if(youtubeCollection['bib'+contDetails.SemiFinalBibNo]) {
         youtubeid = youtubeCollection['bib'+contDetails.SemiFinalBibNo]
     }
@@ -54,10 +55,17 @@ function displayContestantsDetails(contDetails) {
     $("#contestantRegId").text(contDetails.ID)
     $("#contestantDanceType").text(contDetails.DanceType)
     $("#contestantGrp").text(contDetails.Group === "A" ? "A - Age 9-18 Years" : "B - Age 18+ Years")
-    if(youtubeid) {
-        $("#contestantVideo").attr("src", `https://www.youtube.com/embed/${youtubeCollection['bib'+contDetails.SemiFinalBibNo]}?rel=0`)
-    }
+    // if(youtubeid) {
+    //     $("#contestantVideo").attr("src", `https://www.youtube.com/embed/${youtubeCollection['bib'+contDetails.SemiFinalBibNo]}?rel=0`)
+    // }
     $("#contestantImage").attr("src", `images/participants/${contDetails.AuditionBibNo}.JPG`)
+
+    let youtubehtml = `<iframe id="contestantVideo" width="560" height="315"
+    src="https://www.youtube.com/embed/${youtubeid}?rel=0" frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen=""></iframe>`;
+
+    $("#video-container").html(youtubehtml);
 
     if(goldenTicket.includes(contDetails.AuditionBibNo)){
         $(".votingpanel").html("<img src='images/goldenbig.png'></img>")
