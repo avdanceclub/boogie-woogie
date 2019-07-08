@@ -811,10 +811,9 @@ header .social-icon li a {
 	padding :3px 0px 0px 12px;
 }
 
-/* #contestant .contestant-header {
-	height: 230px;
-	background: linear-gradient(0deg, #f9f295, #ff7f9f);
-} */
+.contestant-header {
+	background: linear-gradient(0deg, #f995e8, #1eaff5) !important;
+}
 
 #contestant .avatar {
 	text-align: center;
