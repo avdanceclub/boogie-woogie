@@ -38,7 +38,7 @@ function fetchContestants() {
         contestantsAll.sort(dynamicSort("Group"));
         contestants = contestantsAll
         // console.log(contestants);
-        filterParticipants('semi');
+        filterParticipants('final');
     })
 }
 
