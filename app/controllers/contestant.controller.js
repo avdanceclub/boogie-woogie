@@ -29,9 +29,9 @@ exports.create = (req, res) => {
 
 // Retrieve and return all contestants from the database.
 exports.findAll = (req, res) => {
-    Contestant.find()
+    Contestant.find({ Finalist: true, Semifinalist: true }, {ID: true, Name: true,PartnerName: true,Group: true,DanceType: true,Votes : true,AuditionBibNo : true,SemiFinalBibNo : true,Semifinalist : true,Finalist : true  }        )
         .then(contestants => {
-            contestants.map(item => decryptFields(item))
+            // contestants.map(item => {item.VoterId = []; return decryptFields(item)})
             res.send(contestants);
         }).catch(err => {
             res.status(500).send({
@@ -42,14 +42,14 @@ exports.findAll = (req, res) => {
 
 // Find a single contestant with a contestantId
 exports.findOne = (req, res) => {
-    Contestant.findById(req.params.contestantId)
+    Contestant.findById(req.params.contestantId,  {ID: true, Name: true,PartnerName: true,Group: true,DanceType: true,Votes : true,AuditionBibNo : true,SemiFinalBibNo : true,Semifinalist : true,Finalist : true  })
         .then(contestant => {
             if (!contestant) {
                 return res.status(404).send({
                     message: "Contestant not found with id " + req.params.contestantId
                 });
             }
-            res.send(decryptFields(contestant));
+            res.send(contestant);
         }).catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({

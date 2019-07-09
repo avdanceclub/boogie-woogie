@@ -49,6 +49,8 @@ function prepareContestantHtml(participants) {
     
     $("#participans-container-a").html("").append(getParticipantHTML(groupA));
     $("#participans-container-b").html("").append(getParticipantHTML(groupB));
+
+    $("#5d179ae7212355163ff3ddf6").parent().append('<div id ="burst-12"></div><div class="highvote">Highest <br> Votes</div>')
 }
 
 function getParticipantHTML(list) {

@@ -992,6 +992,45 @@ h4.text-center.note {
   .whatsapp:hover .fa-whatsapp {
 	color: #fff;
   }
+
+  
+
+.highvote {
+	position: absolute;
+    top: 28px;
+    right: 19px;
+    padding: 11px;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#burst-12 {
+	background: red;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    text-align: center;
+    top: 30px;
+    right: 31px;
+  }
+  #burst-12:before,
+  #burst-12:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 50px;
+	background: red;
+  }
+  #burst-12:before {
+	transform: rotate(30deg);
+  }
+  #burst-12:after {
+	transform: rotate(60deg);
+  }
   
 
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
@@ -1161,6 +1200,17 @@ h4.text-center.note {
 	#event .date-venue .thumbnail {
 		min-height: 200px;
 	}
+	#burst-12, .highvote{
+		transform: scale(0.7);
+		top: 16px;
+    	right: 15px;
+	}
+
+	.highvote {
+		right: 3px;
+		top: 14px;
+	}
+
 }
 
 /* end 768 media quires */
