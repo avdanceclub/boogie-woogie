@@ -29,5 +29,8 @@ module.exports = (app) => {
     app.get('/sync', contestants.sync);
 
     app.post('/batchupdate', contestants.batchupdate);
+
+    app.get('/contestant/:contestantId/votes/', contestants.getvotes);
+
     
 }

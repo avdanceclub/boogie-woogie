@@ -191,6 +191,15 @@ const decryptFields = (dataObj) => {
     return dataObj
 }
 
+exports.getvotes = (req, res) => {
+    // Contestant.findById(req.params.contestantId)
+    Contestant.find({ ID : req.params.contestantId})
+        .then(contestant => {
+            let decrypted = contestant[0].VoterId.map(item=> dataProtect.decrypt(item))
+            res.status(200).send(decrypted)
+        })
+}
+
 exports.load = (req, res) => {
     var options = {
         method: 'GET',
