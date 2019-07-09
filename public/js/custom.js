@@ -65,8 +65,7 @@ function getParticipantHTML(list) {
             </div>
             <div class="vote-btn-cont">
             <a class='vote-btn' href="contestant.html?contestantid=${element._id}">
-            ${goldenTicket.includes(element.AuditionBibNo) ? "" : "Click to Vote"}
-            <i class='fa fa-thumbs-up' title='Vote for this contestant'></i>
+            ${goldenTicket.includes(element.AuditionBibNo) ? "" : "Checkout my Profile"}
             </a>
             </div>
     </div>

@@ -71,9 +71,6 @@ function displayContestantsDetails(contDetails) {
         $(".votingpanel").html("<img src='images/goldenbig.png'></img>")
     } 
 
-    if(contDetails.SemiFinalBibNo === 34) {
-        $(".votingpanel").html("Voting Disabled");
-    }
     decorateSocialShares(contDetails)
 }
 
@@ -164,7 +161,7 @@ function decorateSocialShares(data) {
     //set up the url
     var url = 'whatsapp://send?text=';
     //define the message text
-    var text = 'Hey, check out my performance at AV Boogie Woogie, Title Sponsors Mr. Laxmikant and Madhuri Kole and vote for me here '+location.href;
+    var text = 'Hey, Watch my live performance at AV Boogie Woogie Finale, Title Sponsors Mr. Laxmikant and Madhuri Kole, book your tickets here https://ticketees.com/dramadetails/AV%20Boogie%20Woogie';
     //encode the text
     var encodedText = encodeURIComponent(text);
     //find the link
