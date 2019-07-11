@@ -48,7 +48,12 @@ function displayContestantsDetails(contDetails) {
     var youtubeid = "qR7QX9cS6cc";
     if(youtubeCollection['bib'+contDetails.SemiFinalBibNo]) {
         youtubeid = youtubeCollection['bib'+contDetails.SemiFinalBibNo]
+    } else if (contDetails.Name === "Anurag Anantwar"){
+        youtubeid = "QvPoVqUDArk";
+    } else if (contDetails.Name === "Prarthana Nilawar"){
+        youtubeid = "5EIRN052Bms";
     }
+
 
 
     $("#contestantName").html(contestantName)
